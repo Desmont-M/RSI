@@ -33,14 +33,9 @@ mark{background-color:#4da3ff;color:#0b1220;padding:0 2px;border-radius:2px;}
 <input type="text" id="searchInput" placeholder="Search on this page...">
 </header>
 
-<section>
+<section id="publicationsSection">
 <h2>Scientific Outputs</h2>
-<div class="grid">
-  <div class="card"><i class="fas fa-book"></i><h3>Peer-reviewed Articles</h3><p>Manuscripts based on ongoing research. Submitted to international journals.</p><p style="opacity:0.8;">Status: in preparation</p></div>
-  <div class="card"><i class="fas fa-file-alt"></i><h3>Preprints</h3><p>Selected results released as preprints for open scientific communication.</p><p style="opacity:0.8;">Planned</p></div>
-  <div class="card"><i class="fas fa-database"></i><h3>Datasets</h3><p>Curated datasets generated during lab and field research will be published in open-access repositories.</p><p style="opacity:0.8;">Planned</p></div>
-  <div class="card"><i class="fas fa-cogs"></i><h3>Technical & Applied Reports</h3><p>Summaries translating scientific findings into practical insights.</p><p style="opacity:0.8;">Planned</p></div>
-</div>
+<div class="grid" id="publicationsGrid"></div>
 </section>
 
 <footer>
@@ -48,13 +43,64 @@ mark{background-color:#4da3ff;color:#0b1220;padding:0 2px;border-radius:2px;}
 </footer>
 
 <script>
-// Анимация карточек + поиск с подсветкой
+// Данные публикаций
+const publications = [
+  {
+    type: "Peer-reviewed Article",
+    title: "Microbial dynamics in freshwater ecosystems",
+    authors: ["Dusenbina A.","Bersekenov B."],
+    journal: "International Journal of Biology",
+    year: 2025,
+    status: "In preparation"
+  },
+  {
+    type: "Preprint",
+    title: "Data-driven analysis of soil microbiomes",
+    authors: ["Dusenbina A."],
+    repository: "arXiv",
+    year: 2025,
+    status: "Planned"
+  },
+  {
+    type: "Dataset",
+    title: "Environmental measurements 2024-2025",
+    authors: ["Bersekenov B."],
+    repository: "Zenodo",
+    year: 2025,
+    status: "Planned"
+  },
+  {
+    type: "Technical & Applied Report",
+    title: "Lab-to-field translation of microbial studies",
+    authors: ["Dusenbina A.","Bersekenov B."],
+    year: 2025,
+    status: "Planned"
+  }
+];
+
+// Генерация карточек публикаций
+const publicationsGrid = document.getElementById('publicationsGrid');
+publications.forEach(pub => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `<i class="fas fa-book"></i>
+    <h3>${pub.type}: ${pub.title}</h3>
+    <p><strong>Authors:</strong> ${pub.authors.join(', ')}</p>
+    ${pub.journal ? `<p><strong>Journal:</strong> ${pub.journal}</p>` : ''}
+    ${pub.repository ? `<p><strong>Repository:</strong> ${pub.repository}</p>` : ''}
+    <p><strong>Year:</strong> ${pub.year}</p>
+    <p style="opacity:0.8;">Status: ${pub.status}</p>`;
+  publicationsGrid.appendChild(card);
+});
+
+// Анимация карточек
 const cards = document.querySelectorAll('.card');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('show'); } });
 },{threshold:0.2});
 cards.forEach(card => observer.observe(card));
 
+// Поиск с подсветкой
 const searchInput = document.getElementById('searchInput');
 if(searchInput){
   searchInput.addEventListener('input', () => {
@@ -63,9 +109,9 @@ if(searchInput){
     sections.forEach(section => {
       section.innerHTML = section.innerHTML.replace(/<mark>|<\/mark>/g,'');
       const text = section.innerText.toLowerCase();
-      if(text.includes(query) && query !== ''){
-        section.style.display = 'block';
-        const regex = new RegExp(`(${query})`, 'gi');
+      if(text.includes(query) && query!==''){
+        section.style.display='block';
+        const regex = new RegExp(`(${query})`,'gi');
         section.innerHTML = section.innerHTML.replace(regex,'<mark>$1</mark>');
       } else if(query===''){ section.style.display='block'; } 
       else{ section.style.display='none'; }
