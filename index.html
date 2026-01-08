@@ -1,91 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Science Initiative</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #0b1220;
-      color: #e6edf3;
-      line-height: 1.6;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Global Science Initiative</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0b1220;
+  color: #e6edf3;
+  line-height: 1.6;
+}
 
-    header {
-      padding: 60px 10%;
-      background: linear-gradient(135deg, #0b1220, #121a2f);
-    }
+header {
+  padding: 60px 10%;
+  background: linear-gradient(135deg, #0b1220, #121a2f);
+  text-align: center;
+}
 
-    header a {
-      color: #4da3ff;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    header a:hover {
-      text-decoration: underline;
-    }
+header a {
+  color: #4da3ff;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 10px;
+}
+header a:hover { text-decoration: underline; }
 
-    header input {
-      margin-top: 20px;
-      padding: 10px;
-      width: 280px;
-      border-radius: 6px;
-      border: none;
-    }
+h1 { font-size: 2.8rem; margin-bottom: 10px; }
+h2 { margin-top: 50px; font-size: 2rem; }
+h3 { margin-top: 0; }
+p { max-width: 900px; font-size: 1.05rem; }
 
-    h1 { font-size: 2.6rem; margin-bottom: 10px; }
-    h2 { margin-top: 50px; font-size: 1.9rem; }
-    h3 { margin-top: 0; }
-    p { max-width: 900px; font-size: 1.05rem; }
-    section { padding: 40px 10%; }
+section { padding: 40px 10%; }
 
-    .grid {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .grid .card {
-      flex: 1 1 250px;
-    }
+.grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-    .card {
-      background-color: #121a2f;
-      padding: 25px;
-      border-radius: 12px;
-      margin-top: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
+.card {
+  background-color: #121a2f;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  flex: 1 1 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    footer {
-      padding: 40px 10%;
-      background: #080d18;
-      color: #8b949e;
-    }
-  </style>
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+}
+
+.card i {
+  font-size: 2rem;
+  color: #4da3ff;
+  margin-bottom: 10px;
+}
+
+footer {
+  padding: 40px 10%;
+  background: #080d18;
+  color: #8b949e;
+  text-align: center;
+}
+
+input#searchInput {
+  margin-top: 20px;
+  padding: 10px;
+  width: 280px;
+  border-radius: 6px;
+  border: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
 </head>
 <body>
 
 <header>
   <h1>Global Science Initiative</h1>
-  <p class="tagline">
-    Data-driven research at the intersection of biology, environmental systems, and digital technologies.
-  </p>
+  <p>Data-driven research at the intersection of biology, environmental systems, and digital technologies.</p>
 
-  <p style="margin-top:15px;">
+  <div style="margin-top:15px;">
     <a href="index.html">Home</a>
-    &nbsp;|&nbsp;
     <a href="research.html">Research</a>
-    &nbsp;|&nbsp;
     <a href="publications.html">Publications</a>
-  </p>
+  </div>
 
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search on this site..."
-  />
+  <input type="text" id="searchInput" placeholder="Search on this site..." />
 </header>
 
 <section>
@@ -100,14 +110,17 @@
   <h2>Research Areas</h2>
   <div class="grid">
     <div class="card">
+      <i class="fas fa-microscope"></i>
       <h3>Microbiology</h3>
       <p>Laboratory-based research on biological systems, microbial processes, and measurable environmental interactions.</p>
     </div>
     <div class="card">
+      <i class="fas fa-globe"></i>
       <h3>Environmental Systems</h3>
       <p>Analysis of real-world environmental processes using quantitative and experimental approaches.</p>
     </div>
     <div class="card">
+      <i class="fas fa-chart-line"></i>
       <h3>Data Analysis</h3>
       <p>Extraction of patterns and insights from scientific data using statistical and computational methods.</p>
     </div>
@@ -116,45 +129,49 @@
 
 <section>
   <h2>Publications</h2>
-  <p>
-    Research articles, reports, and scientific outputs will be published here as the project develops.
-    The initiative is currently in an active research and data collection phase.
-  </p>
+  <div class="grid">
+    <div class="card">
+      <i class="fas fa-book"></i>
+      <h3>Articles</h3>
+      <p>Peer-reviewed and preprints of ongoing research will be published here.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-database"></i>
+      <h3>Datasets</h3>
+      <p>Curated datasets will be released for public access and transparency.</p>
+    </div>
+  </div>
 </section>
 
 <section>
   <h2>Vision & Future Development</h2>
   <p>
-    In the long term, the project aims to expand beyond laboratory research into programming, engineering, and advanced computational modeling.
-    By integrating biological science with digital technologies, we seek to build scalable solutions applicable at both local and international levels.
+    The project aims to expand into programming, engineering, and advanced computational modeling, integrating biological science with digital technologies.
   </p>
 </section>
 
 <section>
   <h2>Collaboration & Contact</h2>
   <p>
-    Global Science Initiative is open to scientific collaboration, academic partnerships, and future investment discussions.
-    We welcome researchers, institutions, and organizations interested in applied biological and environmental research.
+    We welcome scientific collaboration, academic partnerships, and future investment discussions.
   </p>
-  <p>
-    <strong>Contact:</strong> globalscienceinitiative@proton.me
-  </p>
+  <p><strong>Contact:</strong> globalscienceinitiative@proton.me</p>
 </section>
 
 <footer>
-  <p>© 2025 Global Science Initiative. All rights reserved.</p>
+  <p>© 2025 Global Science Initiative</p>
 </footer>
 
 <script>
-  const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase();
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-      const text = section.innerText.toLowerCase();
-      section.style.display = text.includes(query) ? 'block' : 'none';
-    });
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', () => {
+  const query = searchInput.value.toLowerCase();
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    const text = section.innerText.toLowerCase();
+    section.style.display = text.includes(query) ? 'block' : 'none';
   });
+});
 </script>
 
 </body>
