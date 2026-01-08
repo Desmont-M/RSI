@@ -1,86 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Global Science Initiative</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #0b1220;
-  color: #e6edf3;
-  line-height: 1.6;
-}
-
-header {
-  padding: 60px 10%;
-  background: linear-gradient(135deg, #0b1220, #121a2f);
-  text-align: center;
-}
-
-header a {
-  color: #4da3ff;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 0 10px;
-}
-header a:hover { text-decoration: underline; }
-
-h1 { font-size: 2.8rem; margin-bottom: 10px; }
-h2 { margin-top: 50px; font-size: 2rem; }
-h3 { margin-top: 0; }
-p { max-width: 900px; font-size: 1.05rem; }
-
-section { padding: 40px 10%; }
-
-.grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  background-color: #121a2f;
-  padding: 25px;
-  border-radius: 12px;
-  margin-top: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-  flex: 1 1 250px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.45);
-}
-
-.card i {
-  font-size: 2rem;
-  color: #4da3ff;
-  margin-bottom: 10px;
-}
-
-footer {
-  padding: 40px 10%;
-  background: #080d18;
-  color: #8b949e;
-  text-align: center;
-}
-
-input#searchInput {
-  margin-top: 20px;
-  padding: 10px;
-  width: 280px;
-  border-radius: 6px;
-  border: none;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
+body { margin:0; font-family:Arial,Helvetica,sans-serif; background:#0b1220; color:#e6edf3; line-height:1.6; }
+header { padding:60px 10%; text-align:center; background:linear-gradient(135deg,#0b1220,#121a2f); }
+header a { color:#4da3ff; font-weight:bold; text-decoration:none; margin:0 10px; }
+header a:hover { text-decoration:underline; }
+h1{font-size:2.8rem;margin-bottom:10px;} h2{margin-top:50px;font-size:2rem;} h3{margin-top:0;} p{max-width:900px;font-size:1.05rem;} section{padding:40px 10%;}
+.grid{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+.card{background:#121a2f;padding:25px;border-radius:12px;margin-top:25px;box-shadow:0 10px 30px rgba(0,0,0,0.35); flex:1 1 250px; transition:transform 0.3s,box-shadow 0.3s;}
+.card:hover{transform:translateY(-5px); box-shadow:0 15px 40px rgba(0,0,0,0.45);}
+.card i{font-size:2rem; color:#4da3ff; margin-bottom:10px;}
+footer{padding:40px 10%; background:#080d18; color:#8b949e; text-align:center;}
+input#searchInput{margin:20px auto; display:block; padding:10px; width:280px; border-radius:6px; border:none;}
 </style>
 </head>
 <body>
@@ -88,73 +24,44 @@ input#searchInput {
 <header>
   <h1>Global Science Initiative</h1>
   <p>Data-driven research at the intersection of biology, environmental systems, and digital technologies.</p>
-
-  <div style="margin-top:15px;">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
+  <div>
+    <a href="index.html">Home</a> | 
+    <a href="research.html">Research</a> | 
     <a href="publications.html">Publications</a>
   </div>
-
-  <input type="text" id="searchInput" placeholder="Search on this site..." />
+  <input type="text" id="searchInput" placeholder="Search on this site...">
 </header>
 
 <section>
   <h2>About the Project</h2>
-  <p>
-    This project is a scientific and applied research initiative focused on studying real, measurable biological and environmental systems. 
-    By combining laboratory research with data analysis and digital tools, we aim to identify hidden patterns in natural processes and translate complex scientific data into clear, actionable conclusions.
-  </p>
+  <p>This project studies real, measurable biological and environmental systems. Laboratory research + data analysis + digital tools = actionable scientific insights.</p>
 </section>
 
 <section>
   <h2>Research Areas</h2>
   <div class="grid">
-    <div class="card">
-      <i class="fas fa-microscope"></i>
-      <h3>Microbiology</h3>
-      <p>Laboratory-based research on biological systems, microbial processes, and measurable environmental interactions.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-globe"></i>
-      <h3>Environmental Systems</h3>
-      <p>Analysis of real-world environmental processes using quantitative and experimental approaches.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-chart-line"></i>
-      <h3>Data Analysis</h3>
-      <p>Extraction of patterns and insights from scientific data using statistical and computational methods.</p>
-    </div>
+    <div class="card"><i class="fas fa-microscope"></i><h3>Microbiology</h3><p>Laboratory research on biological systems, microbial processes, and environmental interactions.</p></div>
+    <div class="card"><i class="fas fa-globe"></i><h3>Environmental Systems</h3><p>Analysis of real-world environmental processes using quantitative and experimental approaches.</p></div>
+    <div class="card"><i class="fas fa-chart-line"></i><h3>Data Analysis</h3><p>Extraction of patterns and insights from scientific data using computational methods.</p></div>
   </div>
 </section>
 
 <section>
   <h2>Publications</h2>
   <div class="grid">
-    <div class="card">
-      <i class="fas fa-book"></i>
-      <h3>Articles</h3>
-      <p>Peer-reviewed and preprints of ongoing research will be published here.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-database"></i>
-      <h3>Datasets</h3>
-      <p>Curated datasets will be released for public access and transparency.</p>
-    </div>
+    <div class="card"><i class="fas fa-book"></i><h3>Articles</h3><p>Peer-reviewed and preprints of ongoing research will be published here.</p></div>
+    <div class="card"><i class="fas fa-database"></i><h3>Datasets</h3><p>Curated datasets released for transparency and reproducibility.</p></div>
   </div>
 </section>
 
 <section>
   <h2>Vision & Future Development</h2>
-  <p>
-    The project aims to expand into programming, engineering, and advanced computational modeling, integrating biological science with digital technologies.
-  </p>
+  <p>Expansion into programming, engineering, and advanced modeling, integrating biological science with digital technologies.</p>
 </section>
 
 <section>
   <h2>Collaboration & Contact</h2>
-  <p>
-    We welcome scientific collaboration, academic partnerships, and future investment discussions.
-  </p>
+  <p>We welcome collaboration, academic partnerships, and investment discussions.</p>
   <p><strong>Contact:</strong> globalscienceinitiative@proton.me</p>
 </section>
 
@@ -164,13 +71,10 @@ input#searchInput {
 
 <script>
 const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('input', () => {
+searchInput.addEventListener('input', ()=>{
   const query = searchInput.value.toLowerCase();
   const sections = document.querySelectorAll('section');
-  sections.forEach(section => {
-    const text = section.innerText.toLowerCase();
-    section.style.display = text.includes(query) ? 'block' : 'none';
-  });
+  sections.forEach(s => s.style.display = s.innerText.toLowerCase().includes(query) ? 'block' : 'none');
 });
 </script>
 
