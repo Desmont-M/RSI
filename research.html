@@ -16,6 +16,8 @@ h1{font-size:2.8rem;margin-bottom:10px;} h2{margin-top:50px;font-size:2rem;} h3{
 .card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.45);}
 .card i{font-size:2rem;color:#4da3ff;margin-bottom:10px;}
 footer{padding:40px 10%; background:#080d18;color:#8b949e;text-align:center;}
+input#searchInput{margin:20px auto; display:block; padding:10px; width:280px; border-radius:6px; border:none;}
+mark{background-color:#4da3ff;color:#0b1220;padding:0 2px;border-radius:2px;}
 </style>
 </head>
 <body>
@@ -28,6 +30,7 @@ footer{padding:40px 10%; background:#080d18;color:#8b949e;text-align:center;}
 <a href="research.html">Research</a> | 
 <a href="publications.html">Publications</a>
 </p>
+<input type="text" id="searchInput" placeholder="Search on this page...">
 </header>
 
 <section>
@@ -54,11 +57,30 @@ footer{padding:40px 10%; background:#080d18;color:#8b949e;text-align:center;}
 </footer>
 
 <script>
+// Анимация карточек + поиск с подсветкой
 const cards = document.querySelectorAll('.card');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('show'); } });
 },{threshold:0.2});
 cards.forEach(card => observer.observe(card));
+
+const searchInput = document.getElementById('searchInput');
+if(searchInput){
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+      section.innerHTML = section.innerHTML.replace(/<mark>|<\/mark>/g,'');
+      const text = section.innerText.toLowerCase();
+      if(text.includes(query) && query !== ''){
+        section.style.display = 'block';
+        const regex = new RegExp(`(${query})`, 'gi');
+        section.innerHTML = section.innerHTML.replace(regex,'<mark>$1</mark>');
+      } else if(query===''){ section.style.display='block'; } 
+      else{ section.style.display='none'; }
+    });
+  });
+}
 </script>
 
 </body>
