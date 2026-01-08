@@ -33,13 +33,9 @@ mark{background-color:#4da3ff;color:#0b1220;padding:0 2px;border-radius:2px;}
 <input type="text" id="searchInput" placeholder="Search on this page...">
 </header>
 
-<section>
+<section id="researchSection">
 <h2>Current Research Focus</h2>
-<div class="grid">
-  <div class="card"><i class="fas fa-microscope"></i><h3>Biological & Microbial Systems</h3><p>Experimental investigation of biological and microbial processes under controlled lab conditions. Focus on measurable system behavior.</p></div>
-  <div class="card"><i class="fas fa-globe"></i><h3>Environmental Processes</h3><p>Study of real-world environmental systems using quantitative measurements and observational data. Goal: identify reproducible patterns.</p></div>
-  <div class="card"><i class="fas fa-chart-line"></i><h3>Data Analysis & Modeling</h3><p>Application of statistical analysis, data processing, and computational modeling to datasets. Transform raw data into actionable insights.</p></div>
-</div>
+<div class="grid" id="researchGrid"></div>
 </section>
 
 <section>
@@ -57,13 +53,42 @@ mark{background-color:#4da3ff;color:#0b1220;padding:0 2px;border-radius:2px;}
 </footer>
 
 <script>
-// Анимация карточек + поиск с подсветкой
+// Данные исследований
+const researchData = [
+  {
+    title: "Biological & Microbial Systems",
+    description: "Experimental investigation of biological and microbial processes under controlled lab conditions. Focus on measurable system behavior.",
+    icon: "fas fa-microscope"
+  },
+  {
+    title: "Environmental Processes",
+    description: "Study of real-world environmental systems using quantitative measurements and observational data. Goal: identify reproducible patterns.",
+    icon: "fas fa-globe"
+  },
+  {
+    title: "Data Analysis & Modeling",
+    description: "Application of statistical analysis, data processing, and computational modeling to datasets. Transform raw data into actionable insights.",
+    icon: "fas fa-chart-line"
+  }
+];
+
+// Генерация карточек исследований
+const researchGrid = document.getElementById('researchGrid');
+researchData.forEach(item => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `<i class="${item.icon}"></i><h3>${item.title}</h3><p>${item.description}</p>`;
+  researchGrid.appendChild(card);
+});
+
+// Анимация карточек
 const cards = document.querySelectorAll('.card');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('show'); } });
 },{threshold:0.2});
 cards.forEach(card => observer.observe(card));
 
+// Поиск с подсветкой
 const searchInput = document.getElementById('searchInput');
 if(searchInput){
   searchInput.addEventListener('input', () => {
@@ -72,9 +97,9 @@ if(searchInput){
     sections.forEach(section => {
       section.innerHTML = section.innerHTML.replace(/<mark>|<\/mark>/g,'');
       const text = section.innerText.toLowerCase();
-      if(text.includes(query) && query !== ''){
-        section.style.display = 'block';
-        const regex = new RegExp(`(${query})`, 'gi');
+      if(text.includes(query) && query!==''){
+        section.style.display='block';
+        const regex = new RegExp(`(${query})`,'gi');
         section.innerHTML = section.innerHTML.replace(regex,'<mark>$1</mark>');
       } else if(query===''){ section.style.display='block'; } 
       else{ section.style.display='none'; }
